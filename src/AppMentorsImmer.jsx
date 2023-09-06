@@ -1,21 +1,27 @@
-import React, { useReducer } from 'react';
-import personReducer from './reducer/person-reducer';
-export default function AppMentor() {
-  // const [person, SetPerson] = useState(initialPerson);
-  const [person, dispatch] = useReducer(personReducer, initialPerson);
+import React from 'react';
+import { useImmer } from 'use-immer';
+
+export default function AppMentorsImmer() {
+  const [person, updatePerson] = useImmer(personReducer, initialPerson);
   const handleDelete = () => {
     const name = prompt(`누구`);
-    dispatch({ type: 'deleted', name });
+    updatePerson((person) => {
+      const index = person.mentors.findIndex((m) => m.name === name);
+      person.mentors.splice(index, 1);
+    });
   };
   const handleChange = () => {
     const prev = prompt(`누구의 이름으로 변경`);
     const current = prompt(`무엇으로 변경`);
-    dispatch({ type: 'updated', prev, current });
+    updatePerson((person) => {
+      const mentor = person.mentors.find((m) => m.name === prev);
+      mentor.name = current;
+    });
   };
   const handleAdd = () => {
     const name = prompt(`name`);
     const title = prompt(`title`);
-    dispatch({ type: 'added', name, title });
+    updatePerson((person) => person.mentors.push({ name, title }));
   };
   return (
     <div>
