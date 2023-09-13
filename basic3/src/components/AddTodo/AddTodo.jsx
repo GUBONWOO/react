@@ -7,11 +7,11 @@ export default function AddTodo({ onAdd }) {
   const handleChange = (e) => setText(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ id: uuidv4(), text, status: 'active' });
-    setText('');
     if (text.trim().length === 0) {
       return;
     }
+    onAdd({ id: uuidv4(), text, status: 'active' });
+    setText('');
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit}>

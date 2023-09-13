@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilites;
-
 :root {
   --color-bg-dark: #f5f5f5;
   --color-bg: #fdfffd;
@@ -10,6 +6,14 @@
   --color-accent: #f16e03;
   --color-white: white;
 }
+
+html.darl {
+  --color-bg-dark: #1a1c35;
+  --color-bg: #22243b;
+  --color-grey: #4e4e4e;
+  --color-text: #fdfffd;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -64,4 +68,16 @@ ul {
 button {
   outline: none;
   border: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent);
 }

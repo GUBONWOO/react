@@ -19,7 +19,7 @@
   background-color: var(--color-accent);
   color: var(--color-white);
   font-weight: bold;
-  font-size: 1.4;
+  font-size: 1.4rem;
   padding: 0.2rem;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
