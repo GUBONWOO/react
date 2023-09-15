@@ -12,10 +12,13 @@ export default function Products() {
 
   return (
     <>
-      <label>
-        <input type='checkbox' checked={checked} onChange={handleChange} />
-        Show Only 🔥 Sale
-      </label>
+      <input
+        id='checkbox'
+        type='checkbox'
+        value={checked}
+        onChange={handleChange}
+      />
+      <label htmlFor='checkbox'>Show Only 🔥 Sale</label>
       <ul>
         {products.map((product) => (
           <li key={product.id}>
