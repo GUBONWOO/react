@@ -28,7 +28,7 @@ export default function SearchHeader() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button>
+        <button className='bg-zinc-600 px-4'>
           <BsSearch />
         </button>
       </form>
