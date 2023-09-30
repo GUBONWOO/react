@@ -48,14 +48,14 @@ async function adminUser(user) {
     });
 }
 
-export async function addNewProduct(product, imageUrl) {
+export async function addNewProduct(product, image) {
   const id = uuid();
   return set(ref(database, `products/${id}`), {
     ...product,
     id,
     price: parseInt(product.price),
-    image: imageUrl,
-    options: product.option ? product.option.split(',') : [],
+    image,
+    options: product.options.split(','),
   });
 }
 
