@@ -33,7 +33,6 @@ export function onUserStateChange(callback) {
   onAuthStateChanged(auth, async (user) => {
     const updatedUser = user ? await adminUser(user) : null;
     callback(updatedUser);
-    console.log(user);
   });
 }
 
@@ -77,7 +76,7 @@ export async function getCart(userId) {
     });
 }
 
-export async function addOrUpdateTocart(userId, product) {
+export async function addOrUpdateToCart(userId, product) {
   return set(ref(database, `carts/${userId}/${product.id}`), product);
 }
 
